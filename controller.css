@@ -1,0 +1,448 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Ensure body takes at least full viewport height */
+    background-color: #f0f0f0;
+}
+
+header {
+    margin: 10px 0;
+    text-align: center;
+    font-size: 1.25em; /* Increase font size for headers */
+}
+
+h1 {
+    margin: 0;
+    padding-top: 10px;
+    font-size: 1.5em; /* Increase font size for h1 */
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 small {
+    color: silver;
+    font-size: 0.8em; /* Increase font size for small text */
+}
+
+main {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    width: 100%;
+    flex: 1; /* Allow main to take up available space */
+}
+
+.box-container {
+    display: flex;
+    gap: 10px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column; /* Align children vertically */
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    width: 380px;
+    height: 500px; /* Makes the content inside the box scrollable */
+    align-items: center;
+}
+
+.box p {
+    margin: 0;
+    padding: 0;
+}
+
+#box3 {
+    display: flex;
+    flex-direction: column; /* Align children vertically */
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255,0);
+    border-radius: 10px;
+    width: 380px;
+    height: 500px;
+    align-items: center;
+}
+
+#data{
+    border-left: 10px solid rgb(248, 111, 156);
+}
+
+#box2{
+    border-left: 10px solid purple;
+    background-color:white;
+    overflow-y: scroll;
+}
+
+.datatable {
+    border-collapse: collapse;
+    overflow: auto;
+    color: #a0a0a0;
+    border-spacing: 0;
+    width: 100%;
+    font-size: 14px; /* Adjust the font size as needed */
+    overflow: auto;
+}
+.datatable thead tr td {
+    text-align: center;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgb(248, 111, 156);
+    font-size: 14px; /* Increase font size for table header cells */
+}
+
+.datatable tbody tr:first-child td {
+    padding-top: .5em;
+    overflow: auto;
+}
+
+.datatable tbody tr.domain:hover {
+    cursor: pointer;
+}
+
+.datatable tbody tr.domain.active,
+.datatable tbody tr.domain.active td,
+.datatable tbody tr.domain.active td.time span,
+.datatable tbody tr.domain:hover,
+.datatable tbody tr.domain:hover td,
+.datatable tbody tr.domain:hover td.time span {
+    color: #000!important;
+    font-size: 14px; /* Maintain font size for active/hovered rows */
+}
+
+.datatable tr.domain .label {
+    font-size: 12px; /* Decrease font size for label */
+}
+
+.datatable tr.domain .name {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px; /* Maintain font size for domain names */
+}
+
+.datatable tr.domain .percentage {
+    text-align: right;
+    white-space: nowrap;
+    font-size: 14px; /* Maintain font size for percentages */
+}
+
+.datatable tr.domain .time {
+    padding-right: .25em;
+    text-align: right;
+    white-space: nowrap;
+    color: #808080; /* Darker grey color for time cells */
+    font-size: 14px; /* Maintain font size for time cells */
+}
+
+.datatable tr.domain .time span.active {
+    color: grey;
+}
+
+.datatable tr.stats td {
+    padding: .25em .5em;
+    font-size: 14px; /* Maintain font size for statistics rows */
+}
+
+.datatable tr.stats td span[title] {
+    border-bottom: 1px dotted;
+}
+
+.datatable tr.stats td.label {
+    position: relative;
+    font-size: 12px; /* Decrease font size for statistics labels */
+    text-align: center;
+}
+  
+  /* Centering defaultstats */
+  .wrapper-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Adjust the width as needed */
+    margin: 1em 0;
+    box-sizing: border-box;
+  }
+  
+  /* Styling for the stats halves wrapper */
+  .stats-halves-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    height:20%;
+    padding: 10px; /* Adjust padding as needed */
+    box-sizing: border-box;
+    margin-bottom: 1em;
+    background-color: rgb(255, 255, 255); /* Background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Adjust shadow properties for desired effect */
+    border-radius: 8px; /* Rounded corners */
+    border: 2px solid purple;
+  }
+  
+  /* Styling for upper div containing left and right halves */
+  .upper {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Full width */
+    margin-bottom: 0.5em; /* Margin between upper div and canvas */
+    font-size: 10px;
+  }
+  
+  /* Styling for left and right halves */
+  .half {
+    display: flex;
+    flex-direction: column; /* Ensures content is column-wise */
+    width: 48%; /* Adjust width as needed */
+    box-sizing: border-box;
+  }
+  
+  .half:first-child {
+    align-items: flex-end; /* Align left half to the right */
+    text-align: right; /* Align text to the right */
+  }
+  
+  .half:last-child {
+    align-items: flex-start; /* Align right half to the left */
+    text-align: left; /* Align text to the left */
+  }
+  
+  /* Styling for text elements inside halves */
+  .half span,
+  .half strong {
+    font-size: 12px; /* Adjust font size smaller */
+    font-family: 'Helvetica', sans-serif; /* Change font family */
+    color: #666; /* Grey color */
+  }
+  
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height: 65%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border-radius: 10px;
+    border-left: 10px solid #32CD32;
+}
+
+.task-box {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    height:100%;
+    overflow-y:scroll;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h2 {
+    font-size: 18px;
+}
+
+.buttons button {
+    color: white;
+    font-weight: bold;
+    background-color: #32CD32;
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-size: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border:none;
+    border-radius:10px;
+}
+
+#pendingTasks, #completedTasks {
+    text-align: left;
+    margin-top: 20px;
+}
+
+#pendingTasks h3, #completedTasks h3 {
+    font-size: 12px;
+}
+
+.task-item {
+    border: 1px solid #ddd;
+    padding: 5px;
+    margin: 5px 0;
+    text-align: left;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+#pendingTasks .task-item {
+    border-color: red;
+    background-color: #fad7db;
+    border-radius: 10px;
+}
+
+#completedTasks .task-item {
+    border-color: green;
+    background-color: #e6ffe6;
+}
+
+.task-item-buttons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.task-item-buttons button {
+    margin-left: 5px;
+    padding: 3px 6px;
+    font-size: 10px;
+    background-color: white;
+    border-radius: 20px;
+    border:none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#popup, #editPopup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.popup-content h2 {
+    text-align: left;
+    font-size: 14px;
+}
+
+.popup-content form {
+    text-align: left;
+}
+
+.popup-content label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.popup-content input, .popup-content textarea {
+    width: 95%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height: 33%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border-radius: 10px;
+    border-left: 10px solid orange;
+}
+
+.blocked-sites-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    height:100%;
+    overflow-y:scroll;
+}
+
+.blocked-sites-box .header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Ensure content inside header is aligned to the start (left) */
+    width: 100%; /* Ensure the header takes full width */
+}
+
+.blocked-sites-box .header h2 {
+    font-size: 16px;
+    justify-content:flex-start;
+}
+
+.blocked-sites-box .buttons {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.blocked-sites-box .buttons input[type="text"] {
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 12px;
+    border-radius: 10px;
+    height:8px;
+}
+
+.blocked-sites-box .buttons button {
+    color: white;
+    font-weight: bold;
+    background-color: orange;
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-size: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border:none;
+    border-radius:10px;
+}
+
+.blocked-sites-box .buttons button:hover {
+    background-color: rgba(243, 74, 7, 0.984);
+}
+
+#blockedSitesList {
+    border: 1px solid #ddd;
+    padding: 5px;
+    margin: 5px 0;
+    text-align: left;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+
+#blockedSitesList div::before {
+    content: '⬤'; /* Bullet point */
+    margin-right: 5px;
+    color: red; /* Adjust bullet point color */
+}
+
+
+
+  

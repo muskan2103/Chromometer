@@ -1,0 +1,28 @@
+{
+    "manifest_version": 3,
+    "name": "Website Time Tracker",
+    "version": "1.0",
+    "description": "Track time spent on different websites",
+    "permissions": [
+      "tabs",
+      "activeTab",
+      "storage",
+      "scripting",
+    "declarativeNetRequest"
+    ],
+
+    "action": {
+    "default_title": "Details"
+    },
+    
+    "background": {
+    "service_worker": "background.js"
+  },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"],
+        "css": ["content.css"]
+      }
+    ]
+}

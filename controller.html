@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="controller.css">
+    </head>
+    <body>
+        <header>
+            <h1>
+                Chromometer
+                <small>
+                    track, view, and focus!
+                </small>
+            </h1>
+        </header>
+        <main>
+            <div class="box-container">
+                <div class="box" id="data">
+                    <h1>Today's Snapshot</h1>
+                    <div style="height: 180px; width: 100%; display: grid; place-items: center; padding-top: 20px;padding-bottom:10px">
+                        <canvas id="myCanvas" width="150" height="150"></canvas>
+                    </div>
+                </div>
+                <div class="box" id="box2">
+                </div>
+                <div class="box" id="box3">
+                    <div class="container">
+                        <div class="task-box">
+                            <div class="header">
+                                <h2>Tasks for Today</h2>
+                                <div class="buttons">
+                                    <button id="createTaskBtn">Create Task</button>
+                                </div>
+                            </div>
+                            <div id="pendingTasks">
+                                <h3>Pending Tasks</h3>
+                            </div>
+                            <div id="completedTasks">
+                                <h3>Completed Tasks</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Container">
+                        <div class="blocked-sites-box">
+                            <div class="header">
+                                <h2>Blocked Sites</h2>
+                                <div class="buttons">
+                                    <input type="text" id="blockedSiteInput" placeholder="Enter site URL">
+                                    <button id="addBlockedSiteBtn">Add Site</button>
+                                </div>
+                            </div>
+                            <div id="blockedSitesList">
+                                <!-- List of blocked sites will be dynamically added here -->
+                            </div>
+                        </div>
+                    </div>
+                    <div id="popup" class="popup">
+                        <div class="popup-content">
+                            <span class="close">&times;</span>
+                            <h2>Create Task</h2>
+                            <form id="taskForm">
+                                <label for="taskName">Task Name:</label>
+                                <input type="text" id="taskName" name="taskName" required><br>
+                                
+                                <label for="taskNotes">Additional Notes:</label>
+                                <textarea id="taskNotes" name="taskNotes"></textarea><br>
+                                
+                                <label for="taskStatus">Status:</label><br>
+                                <select id="taskStatus" name="taskStatus">
+                                    <option value="pending" selected>Pending</option>
+                                    <option value="completed">Completed</option>
+                                </select><br><br>
+                                
+                                <label for="taskTime">Time to be spent:</label>
+                                <input type="time" id="taskTime" name="taskTime" required><br>
+                                
+                                <button type="submit">Add Task</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>        
+        <script src="analysis.js"></script>
+        <script src="box3.js"></script>
+    </body>
+</html>
